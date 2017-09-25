@@ -1,7 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-
-group = 'com.github.banketree'
 
 android {
     compileSdkVersion 25
@@ -24,4 +21,9 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.3.1'
+}
+
+def hasBuildExtras = file('/common.gradle').exists()
+if (hasBuildExtras) {
+    apply from: '/common.gradle'
 }
